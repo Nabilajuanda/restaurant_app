@@ -30,7 +30,7 @@ class RestaurantListItem extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, RestaurantDetailPage.routeName,
-                      arguments: restaurant.id);
+                      arguments: const RestaurantDetailPage().toString());
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

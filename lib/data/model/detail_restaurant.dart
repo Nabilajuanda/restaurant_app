@@ -10,10 +10,9 @@ class Detail {
   DetailRestaurant restaurant;
 
   factory Detail.fromJson(Map<String, dynamic> json) => Detail(
-        error: json["error"],
-        message: json["message"],
-        restaurant: DetailRestaurant.fromJson(json["restaurant"]),
-      );
+      error: json["error"],
+      message: json["message"],
+      restaurant: DetailRestaurant.fromJson(json["restaurant"]));
 }
 
 class DetailRestaurant {

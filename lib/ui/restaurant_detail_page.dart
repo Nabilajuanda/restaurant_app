@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_app/data/api/api_service.dart';
-import 'package:restaurant_app/data/model/detail_restaurant.dart';
 import 'package:restaurant_app/provider/restaurant_detail_provider.dart';
 import 'package:restaurant_app/ui/item_restaurant_detail.dart';
 
-class RestaurantDetailPage extends StatelessWidget {
+class RestaurantDetailPage extends StatefulWidget {
   static const routeName = '/resto_detail';
 
-  final DetailRestaurant? detailResto;
+  final String? detailResto;
 
   const RestaurantDetailPage({super.key, this.detailResto});
 
-  Widget buildDetail() {
+  @override
+  State<RestaurantDetailPage> createState() => _RestaurantDetailPageState();
+}
+
+class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
+  Widget _buildDetail() {
     return ChangeNotifierProvider(
       create: (_) => RestaurantDetailProvider(
-          detailResto: detailResto!.id, apiDetail: ApiDetail()),
+          detailResto: widget.detailResto!, apiDetail: ApiDetail()),
       child: Consumer<RestaurantDetailProvider>(
         builder: (context, state, _) {
           if (state.state == ResultState.loading) {
@@ -54,8 +58,21 @@ class RestaurantDetailPage extends StatelessWidget {
     );
   }
 
+  Widget _buildAppBar(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Restaurant Detail',
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: _buildDetail(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return buildDetail();
+    return _buildAppBar(context);
   }
 }
