@@ -5,22 +5,17 @@ import 'package:restaurant_app/data/model/detail_restaurant.dart';
 import 'package:restaurant_app/provider/restaurant_detail_provider.dart';
 import 'package:restaurant_app/ui/item_restaurant_detail.dart';
 
-class RestaurantDetailPage extends StatefulWidget {
+class RestaurantDetailPage extends StatelessWidget {
   static const routeName = '/resto_detail';
 
   final DetailRestaurant? detailResto;
 
   const RestaurantDetailPage({super.key, this.detailResto});
 
-  @override
-  State<RestaurantDetailPage> createState() => _RestaurantDetailPageState();
-}
-
-class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
   Widget buildDetail() {
     return ChangeNotifierProvider(
       create: (_) => RestaurantDetailProvider(
-          detailResto: widget.detailResto!.id, apiDetail: ApiDetail()),
+          detailResto: detailResto!.id, apiDetail: ApiDetail()),
       child: Consumer<RestaurantDetailProvider>(
         builder: (context, state, _) {
           if (state.state == ResultState.loading) {
