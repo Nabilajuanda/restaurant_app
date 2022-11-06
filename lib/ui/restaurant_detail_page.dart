@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_app/data/api/api_service.dart';
+import 'package:restaurant_app/data/model/detail_restaurant.dart';
 import 'package:restaurant_app/provider/restaurant_detail_provider.dart';
 import 'package:restaurant_app/ui/item_restaurant_detail.dart';
 
@@ -8,8 +9,10 @@ class RestaurantDetailPage extends StatefulWidget {
   static const routeName = '/resto_detail';
 
   final String? detailResto;
+  final DetailRestaurant? detailRestaurant;
 
-  const RestaurantDetailPage({super.key, this.detailResto});
+  const RestaurantDetailPage(
+      {super.key, this.detailResto, this.detailRestaurant});
 
   @override
   State<RestaurantDetailPage> createState() => _RestaurantDetailPageState();

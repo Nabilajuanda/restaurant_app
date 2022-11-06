@@ -17,10 +17,9 @@ class ApiService {
 }
 
 class ApiDetail {
-  static const String _baseUrl = 'https://restaurant-api.dicoding.dev/detail/';
-
   Future<Detail> topDetail(String id) async {
-    final response = await http.get(Uri.parse('$_baseUrl$id'));
+    String _baseUrl = 'https://restaurant-api.dicoding.dev/detail/$id';
+    final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
       return Detail.fromJson(json.decode(response.body));
     } else {
