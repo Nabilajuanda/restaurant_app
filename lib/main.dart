@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: LoginPage.routeName,
       routes: {
         LoginPage.routeName: (context) => const LoginPage(),
-        RestaurantList.routeName: (context) => const RestaurantList(),
+        RestaurantList.routeName: (context) => RestaurantList(),
         RestaurantDetailPage.routeName: (context) => RestaurantDetailPage(
             detailResto: ModalRoute.of(context)?.settings.arguments as String),
       },
