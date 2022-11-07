@@ -14,11 +14,11 @@ class RestaurantDetailProvider extends ChangeNotifier {
   }
 
   late ResultState _state;
-  late Detail _detail;
+  late DetailResult _detail;
   String _message = '';
 
   String get message => _message;
-  Detail get detail => _detail;
+  DetailResult get detail => _detail;
   ResultState get state => _state;
 
   Future<dynamic> _fetchAllDetailResto() async {

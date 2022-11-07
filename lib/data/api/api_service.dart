@@ -17,11 +17,11 @@ class ApiService {
 }
 
 class ApiDetail {
-  Future<Detail> topDetail(String id) async {
+  Future<DetailResult> topDetail(String id) async {
     String _baseUrl = 'https://restaurant-api.dicoding.dev/detail/$id';
     final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
-      return Detail.fromJson(json.decode(response.body));
+      return DetailResult.fromJson(json.decode(response.body));
     } else {
       throw Exception('Gagal memuat detail restaurant');
     }

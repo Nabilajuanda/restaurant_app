@@ -1,5 +1,5 @@
-class Detail {
-  Detail({
+class DetailResult {
+  DetailResult({
     required this.error,
     required this.message,
     required this.restaurant,
@@ -9,7 +9,7 @@ class Detail {
   String message;
   DetailRestaurant restaurant;
 
-  factory Detail.fromJson(Map<String, dynamic> json) => Detail(
+  factory DetailResult.fromJson(Map<String, dynamic> json) => DetailResult(
       error: json["error"],
       message: json["message"],
       restaurant: DetailRestaurant.fromJson(json["restaurant"]));
